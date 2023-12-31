@@ -1,0 +1,43 @@
+# version: '3'
+
+# services:
+#   web:
+#     build:
+#       context: ./
+#       dockerfile: 'dockerfile'
+#     ports:
+#       - "8081:80"
+#     volumes:
+#       - ./php:/var/www/html/
+
+version: '3'
+
+services:
+  apache:
+    image: php:7.4-apache
+    ports:
+      - "8081:80"
+    volumes:
+      - ./:/var/www/html
+      - ./api/php.local.ini:/usr/local/etc/php/php.ini
+      - ./api/apache-configs:/etc/apache2/sites-available
+    command: ["bash", "-c", "a2enmod rewrite && docker-php-ext-install pdo pdo_mysql && apache2-foreground"]
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root_password

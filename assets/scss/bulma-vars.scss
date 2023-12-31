@@ -1,0 +1,19 @@
+
+// Update Bulma's global variables
+$family-sans-serif: 'Jost', sans-serif;  // Google font setup in nuxt.config.js
+$primary: #2687CE;
+$primary-dark: #015DA8;
+$primary-bg: #D2E9FA;
+$link: $primary-dark;
+// $widescreen-enabled: false;
+// $fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+@import "~bulma/bulma";
+@import "~buefy/src/scss/buefy";
+
+@import 'main';
