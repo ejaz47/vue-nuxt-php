@@ -1,5 +1,12 @@
 # vue-nuxt-php boilerplate for Static front-end
 
+## Prerequisite
+```
+- Docker 
+- Nodejs >18.0.0
+- yarn
+```
+
 ## install dependencies
 ```bash
 # install Nuxt dependencies
