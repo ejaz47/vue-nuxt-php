@@ -3,7 +3,7 @@
 ## Prerequisite
 ```
 - Docker 
-- Nodejs >18.0.0
+- Nodejs >19.0.0
 - yarn
 ```
 
